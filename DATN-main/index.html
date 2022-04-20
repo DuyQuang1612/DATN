@@ -1,347 +1,1088 @@
 <!DOCTYPE html>
 <html>
-
 <head>
 
     <meta charset="utf-8">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="DATN.css">
     <link rel="stylesheet" href="owl.carousel.min.css" />
     <link rel="stylesheet" href="owl.theme.default.min.css" />
-    <link rel="shortcut icon" href="E:\GitHub\DATN\images\iconlogo.jpg" type="image/jpg">
+    <link rel="shortcut icon" href="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHCBUVFBgVFBUYGRgaGBkaGhsYGxsaHBoZGBgZGRgaGBsbIC0kGx0pHhgYJjclKS4wNDQ1GiM5PzkyPi0yNDABCwsLEA8QHRISHTUpIik1MjAyMjIyMjA0MjIyMjIyNTIwMjIwMjAwNDUwMjUyMjIwMjIyMjQyMjI1PjYyMjIwMv/AABEIAOEA4AMBIgACEQEDEQH/xAAbAAABBQEBAAAAAAAAAAAAAAACAAEDBAUGB//EAD8QAAIBAgMGBAQDBwMDBQEAAAECAAMRBBIhBTFBUWFxIjKBkQYTobFCUsEUYnKS0eHwI4KiQ7LCFTNT0vEW/8QAGQEAAwEBAQAAAAAAAAAAAAAAAAECAwQF/8QALxEAAgIBAgQEBgICAwAAAAAAAAECEQMhMQQSQVEiYXGREzKBobHB0fHh8BQjQv/aAAwDAQACEQMRAD8A4FEJk7EKITOBYSCs1z2nmnGMjbz0+8CPw9ftEF5wAciNe273jlrxRWAN49jHki0yd/1hYACmYa0eZj5gNBrCd7d4AIKBBaoJGxJ3xAQsVkubS5kTVCYjrFa2+FhYIEItykT1gN5gCvcgIpYncAP0EpRY9SWMWA3y3R2LWbVytMAXOYi4Ubybbh3ImYaILnISyg+YixPW3CNRXcdFkNeKOEjlZIgYo9o14AIxRRXgArR40e8AFGh2iLQARa7X6wYSDUQrW3e/9IrAa1u8GPlh06YPGKwAhIOY0kxRVkTG8AJQwte1pE7E9oiYgIEjARWhBSYzMq+YgQWoCtBdgBcxqFKpWbLSGnFjoB35feaOH+HP9SzvmUAE20ux/DzAtbXrHJxh8zKoyPnsQWVCVG862HeX8LsR6i56hKgjwr+JuW/dfrOnWitsgVQi2NrC1xqPbf7SVEZ2uoOW2jEEjXeQBq30G/Wc74q/lVDsxsDsWnSTM4V3t+LVQeAA46wqH7PhVPzGAc+YLYuxOtgu5F7zpFRaalwjuwHEAHrlzWAE4zbW32r5qSU1Rb+ImzMbHmNAO1+8MMp5G+bVdXsBBtDab4jwqMlK98oNyx5ufxGVlWwsIVNMoAhTobWy2JbI7RSQiMEvEMAiNaSfLMWQwAiKx7SYwM0oBBekVhBLwYAGzwIooASEcBHSmTCSiT0khIXQb5IDCiBqTBDa8hHdibCMq84iQWN9YQXSPfkPeK8LAaw7x80ZmAFzpI8PQau+RDZd7NyH+cI0ur2GkR1cSNy3ZibDv05zVw/w94CahvUYWUcFJ4nmQPSamF2TSRlKrql9eJZhvPp95cBF7/7VA1JtvsN+/wD7Zhk4npjH6AYbDrSQIg6d2PEyaihPhQZiN/AA8Sx4dt/STpgGaxc5QPwjUm/5mB07D3l0JlW2YKo5BVA9xOKUr3dsCrQ2fbVrObk2Nwoub7uJ6n6SfFYkU1LPURF5t+musydqbdw9NSDUZ2ta1NrG/wDEtgs43IajGpULWv4c7km3LM2s6cXDSyLmnovQZZ2htOtiGZfmMafRcgPdQT9SZHSohRYCEmIproCPSM+0EHEntO2nXLFUhOyRRzEI0xK3/qK8VYQf2p28lNiOgP6CL4bFTLXyxGKgSl+2cCrX5R3xDC2amyg8Tce1xHySDlZZZ4JYyt+1jkYZxC84csuwUwyY0D9oTnEKqniIuV9gphWjQoxELCxooooxl16lr2kOXnD+WwgjreRZI9/T/OcL5R5RC3Aep/pDLkxAD8sjpCJQC5tpvjZOchwuH/aKoT8C6tbl/fdKVat7IESYHCftNQjUU03nn07n7To9n4FKYfILBmJ7AaADpv8AeHgsOlJCEGUFiefGw+wEuYXCkgGoGAt5bG5/iPAdB68pxZsznaWkSrI8NTZwMu7eWO4E62H5jw9N8uUMOlPc5vxJKlj03fQQ6pVELCmLAbvAvpcmwmE+3q7v8ulQCG18zm4Ck77LYcDxMyhCU02tF6gaW0dq0aNvmGpru8L2PY2AnMbV26MR/p0aAP7zKGblcDcvckzRxWzfmA/MdncggM3lS/FEGg+8tYXCpSUJTX+rHmxm8JYsSTWsvt6jOTOwqyLn0zXACg3Yknpppvmnhvh4efEOSfyg2A7n+k39FFz7/oICOCb3ueAW7W/lvr1jfF5JLT3QWzKqbApsVsMqDeBfOx6knQdN8v0MHSp+GnTW/a57ljulp1qaZaba8SALdbE3+kloYRzuKDnqXN+osNfWYyy5JLV6dr/IWUG2fTL/ADKgDNbS/lUDkD95YGo00X6ntyEtvs5iNanG9goAPQ3zQxhU/EH9Wa3/ABNveRz2rcr/AEIzKVCmmiIq8z/U7yYJoU2bOQHYaX89uyi9vaayYSmDdAl+oVv7/WR7S2mKKZmUMBvCuoNuYVrX7CUnKTqNt+wGRi8Ca9lOYIPwgBCSOLFyLDoBIjs3C0x4/kr/ABvmb+XW8z9t7do4hbDDsz2sHYgFe2W9x0OkycPgBbxDXlO+GNqK5m15f0P1NHG4vCDSnSFRuYXIv1ux+kyFw5YkkBeg3CXhQA3CIrNeelSFzdiJVsLCIwyIMgkExoUYwKNOIqDvEhVGG43EIVeYiskc0BwgMhEsKwO6PEBlYpr2pr5mIFu+79J1GzdnJRuFuWYL1JNiLL63MqbL2G7O1ZqbWBBThfLYlgOO6wmxicTTw6fMqh8x0GVTpxy305amY5sil/1wd966suqRbw2FKeJytxci50QHX36yrjdq50cYd1ZwPMFugtrYsTYntfrMfE3xa/MZTTpKDlGYln5M19Lek1cLgStNUpp4RbU6A66kcWJ9usycFHV6vt0XqIp4TD1LZ8Q7O/AE+FCdwVd1+tpdDgXGrNvIUFj7DWWmw1O3+pU/mOQXHIHf63kyYqmostSlbkGVftpM5yctXr6aICph6DtuCgnfmbUf7Vv7EiTJs83JZi3RbL97/cSlivifDq5RwxI0uoVwf4SDIcbt8ZGakKqkC92pkppwOY6DqDKWHK3oqsdGuMJSHmT1e5t2Y3+hlhVNvCwI7Aj0It+s42h8ZVj/ANFXP7uf7ayptbb1WolmoinqCHAYMCOTaS1weVum/v8AoKO9zsN6/wApB+9pRr7Ww4YpUcIw4MpU+jEWI6gzgV2zXAsMQ/uT9TIzU+YQalVn/iJPsTumkeAS1k/YKO8r7bw6qcuIW9jbUvrwuLE29phr8Y1dQKSPb8QzgHrY6zKXBU/y/UyZKSjdp6S44cUVVX6k8xFtXH1cSQXRFtuKjxW5EkkkdJVXALxuZoZY1pp8RpVHRC5mQrTAFhCMK0RiuwAzGEpjGMTABMkBkhXg3jAAiNJYBSMot1lsRbSPTJI4HvFX4STDDT1kkEYynoZo7GwxqVqaHVS1z/Cup+0z1TVhOj+EkFNa2Jfy00IHe2ZvoAPWZZpNQdb9PV6FQVujL+K/iSumKanSfIqWWwCm7WBa9weJt6SjQ+L6w0qKjjtlPuNPpK67HqVlOIqVKdIVGZlNRspckkkqLbtZWq7ErKMyqKi/mpMHH/HX6TohhwqKjS00+ptZ0mF+JMO9s6ZCNwYZk9LfcgS7iKlSoytRrhKdtctnueYLXAnnp5HQ9ZJQxDocyMVPQ/fnJfCLeDr11X3E0dxjcMKy5HZ3AIJOu8cgot9IWHw1On4Up5bbzkN+mpFydJibN+JmBAqaH8y/+S/0nTrtdMhqcQpIy6hxvtpu/ScuSOSNRadeT0JaKaJSpnwBAxueAPUkmTlVYeIhhxHD24+ss4Ha9HEW+W9nG5W0bqLfiHaXGw9N7h0W/G4B9QbTDI3F+K0yTMTTRBp7D05yDEYJKljUGYLuBJCjrYHX1mqMFT3EEHgVZgD6A2v0kL7Ps1/mGx3ZgGAPLS3v6RRlT8MqAoDDUty00PZFt7mUtobGWoAFVE1uWC3NuWlptVcNUUE2V+xKn2N/vK5Vvxhx2Gn8y3+4lRnNO0/vf2GYZ+GRb/3mvzy6feZWNoPRbKKgfmADcd9CPrOwRUOoyt1831MP5i8Newv9ptDi5p+JX9KCzihj1/ErCWaddW3G/T+xnUuAwsadx+9ltMHFbBqM5dPloOABb3Om/tNYZsct9PqTSZXMG0avgsTT1ZA44ldftr9JHQxAccjyM15dLTteRNMkIgwxGaIaAjExzGtABi0bNHgmUBer7hCw+71g2uu6LDHeJIgzo3edXjcHlw2Hwl7Gu2eoeVNbVKn0yrOWqC4naYx1qfsdVvLUpvQPQ1UBuP8AdTI9Zz5m1OPbV/VK0a4+pl7JxDtiWd6ZWlUp2wx0sEp8LfhzBg3oJa2vg0am5ygOFYq66MCASLMNZi7Lx70V+W9SlemWRRWR1y8cnzbZRpbnw4TRw22Fqk0nXJUKtZQQ6sLb0ddCPaZZ8WT4inFaKtu39GiZzOAepVo1KlUJVFPg6+Mi12s62YG3O8qVMFRawVzScqGCVNVIYXGVx+s1/hCmGoVUPFyp9VA/rMfbFI/Loud6q1Jv4kYgfrPRhkuco7U/0SUquAqK4plbsdwUg3HO44TW2Xs6oDlTEUAx/Aama59Ba/YzLYFKKkf9QsCf3EsAvYkk+glSbyTaoDqRs9FcJiaOV2PhZWORz0IIyt3ljH7PrsUNOqVCeXO7FgTv8Vr20GhJl7ZN8XgstTVhmUNxzL5GvzGkPZqO9FKhJbMtyNxBuRpbzc/6zzp5JJt3qnTT1X0IGwu0cQq5cRSDj89Mi/cqba9RaR7O+KaTs1OqQviIVyCFZeGYHyn6Sc5DcGx4EHf1BB1lKtsjDt/0wOqhh9pipY2mpxr0A6YPl13rz32H6jr/APsYaarqp1sNfVefb25Hg8Q1XCtbD1KuTiGQlR7ix9BINi/EVWh4fOl/IdLX35Tw7bpp/wAK480Hf2sKPQMRhadUXKqeTWF/eVxghuDMrDgfGpHMZvER66TFrfFlLKHp6NcZ0cEZhuOVhcZhNjAbVo4lR8t7NvymwdT0HH0uJhLDlgtU696ACtQqICcocD8pse9m0A9ZXZiPMcnQi3sW0PpNRcWoqCk7KHIuB+YXtcX46bpJ5RY+Tr+HoenWZp1vHX8iMavQVlIcnKf3iv2tMqv8P0CPDmU/u3b7g3nTVtn0w2YLl4HJpbqBuPXSA2CferBh+9p/yXT6TSGZwXhf6A4B6dSmx8LsnAspX77pJRxCtu9p1+I+YAQEsRxa7L38Fzbvac3idjVnYurUieITQe1t/czvhkU1cqX1CrK5EGR1GemctVCvX+nA+kkUgi4Nx0jcWiWhiYxMe8ZhADSkLIVNxuk0djpEwLex8GcRVWmvHzH8qjzH2/SdBiXFfHU6FP8A9nBjM9t3zLZVX0/+0j2O64TA18ZYZyMid75V/wCZ/wCMv/CmzWw+EDsparU/1H/MS2oGvGx9yZ52fL80+3hXq939EbwhSOU27VqVMZWpK7pTzoWVNGd2RFCjmTl46AAkzUwGxBSykHIQQSqa5ujuwzP6ZR0gtQT/ANQWuGBSqjMhOn+qoCMuu5subQ67+U23lcRxM4QhCOmiv8FJHJUx+yYlw2lGqbq3BWvex5byPaQ7fpqi1A3kezoRraqotbsw+xnQ46uAypYMXOqnWyDVmI5cO5ExcfUpmm6HIisD8vXzW3Nlt4RfjN8M5ScZNa6X5+ZLMjZGHTE0jhywWqjF6ZO5gwGZT7XhUvhHElrMFUcWzAj0A1Mmw2zhWwiVEIWqhZQQbXysSoJ9Rr2l34b2jiatRqVSrlyKSbqpfQgW1H1M68mSStwa03voRfY2amTB4bKlyQpCDezubkmw9SeQEfYmMokLSpOGyoh62sFN+uguOF5A+FKMHZ2cuLBnsSOOUWsFuBew5GZ20KIpMMTTGV0NzlBKuDowYDdccZwpQncG9XrfmSdG+FVi3BrggjfYgb+YuG3/AElGoGVsrLxtmHlJsDpyOu77x8FtylVqIqHV0YnddSp0Rhz8002QFmUi4YA2PG2h/wDGYSUoPlmugGVmPL6yjtDAU6gJdDcDzKPFp/De/YzSxNBkJy6oADrcst7+407yEFt/hPuP6xxk4NOP5A4RVVGKujZb6ZlsfUS2cFTfxIbdv6cJ11VQwyvTDA79zD62P0nHY4LRqf6eYKTqrqRbsTvHKeljzPLto/dA9dgqmEqNbNVZsvluSSva503CX8PtrGUxlJWov7wubdxY+95EjhhcG4hho5TvSSTJ5mBs/b2Jo6WzJfRWuco5K3mA73lhvixxUDIhC28dNjdb38yMBdZEygyAoImoNtuKHzFra/xCtUI9NalOsmgYEWyneptvHHdBp/Elaw+bTSp+8Rlb+Zd3oJVKCOVj8FKKiHMW6m36Trleg9uIzhx/zW/1mFiHTNekrqORN7dv7y+VEHIJcZxWyGpIr0cS25lv1lq8HKIjJk09hM0Sw5wGbNoN3EyMOn5YmrHcNJAjtMPQ/a9m/Jp2Z6VRXKE2DhWL5SeAYEi/MRsR8SYxKtNKuDRBVYqi/M8VxbzMLgbxwnJ4CvUptnpsyH8ymx/vOw+JcQiYvBvWqBaSJUcO342sigaDfYg+84ZYkp8jipJ21vadeRvCVoycTsmoM64jKExNViApv8iqdabBja+bUHrbnMoYipQcUKq1Sx0VlrsqMOBGY2HvOkx3xFhqlRKCuGWpcFhuRvwWJ45uPAgSxjMGlVMtVQ2mvRralTwlLiZRUfjRq+n7G12OUxNPEkMlPD/KDCzuzhnI6uTe0GuUsClamGCIrHORlKX1W3mGpuvGwk7/AA4iBxVqvk0CXawFwfMDpe/pONty1noYnGesXt5fySzuPhhUalXammrOxBIsMo1QA/p1mftFv2fEJWQ2z+F16GwYjoR7ETpdkYdqeGRKgCkKfCt78T4uJbibaTH23TDYdrgtYAi29SOOvDn0vOWOVPM+zdEXqdNiqXzBkBtpe/I/gPvr6TLUm33B4EaEX6G8f4XxDNhEZtSLqOynKo+3vJcTQyVNCfGM1+bCwbpr4T7zklHlco9gOP2wi0KyVaXhYHNlsQLjW68CDuIE7HDbXp1KaVswHiVGB3qz+HKfWx7CUsbhkqIUqDfuPI8CORnEVsIyO1Mk5l1sONtxHobjvO6CjxEUpbr7oe56o+jr1BX18w+xlTG4XL46Y1uLruBJIFxyOvrKOzttpVwxqM1npqGccbr+IAcG/UzZc5kJXW63X2uv6TgnCWNpSXkyTIDn8p+mh5EG2sCsEYZai3HJhp7nSaeIw4cZ00YgHXcwtoG/rM8VRqNQQbEWOh4g2gu8V7boDk9qYZcO4am4KtvXMCRx9R1kqPcXtN7FYKjV0dVJ5jRh675zeLwr4ZwrHMjeVv68jPQxzWSNdV36iassBhBZYN4g0ESMRBJkjC8iMoBjGMUYwGKCY5gmMC0rldDuhfOHASUi++CiAXgBEXJnW/FeLY08LjKSoxI+WKbpmF3sfCPzApa/UTk6u+dXWzVMBhqlJS7Yaojug3kIWDWHOxBmGSlOEvOvdGmPqNiMLhHVaeKGHTEEainZCpO4A892+XsIlRAadRs+Xyud7L+9+8OPPQzl8UmDejiKjVKbu7M9NixFUE6qhQ7rHTS4N+kbZHxaAgp1lYlRYOviJA3Zl59RM83DTlF8tvXZ9PTyNLNf4oI/ZqmbkLfxZhacl8M4CpVrKUsAhDMxFwOWh3nl2vwmvtba1FlzMlR21yCopVA3O2gNuxM0PhjZDUqYeozXfxCmDoLj8QHmNuegmuK8HDtPdkyZs4p7U3y6nKRc8zoNeO+ZlU+Fjlvobrz03e00NoMcqjQXO7ouup75d0z8RUKqXVblRqt7XA3jvvt/ecUP/NGZl/BGIuXpC+UNnAPAWK2PrkPpOj2gmZS3/wAZuOw8/wBCf5ZzHwhjKaPiHYhQcrC++xdgB3uyj1nY2ypY6m1iObNv9yZvxVxy81dv8jZkNoNdQfe3XmJy+2cCKNRaqaox1G+3QHlbd2nTJdBlbXKSt/4dAT3FjfrMj4lwzmmWQ3TQum8CxuHXkefeVw0nHJyt6P7gjJxWDucyHLmBBtuIO/3nQfCW2RlGHqHK66ITuYcFvzHDmJj4Ns1NdeAHqNJBicKH36HmJ1TUZpwlt+CebozvtnYhHVghuEdkPQqd3sRGbDBgeDhnsehYsAeYsROI2PtFsJUOa7U381t4P5h1+863AbbpVKz06bXuqup/MbWYW4EDLp3nFl4eUG5Q1W5RE7C5VgbjeLE/pqNN8y9p7Hp1blGyvv36HuvDvOlegHzA6EMSp4jMAfUXuLdJn4ikNUcDUbjuI5jpM8eTklcX/voI42jUZWNOoLOvOT36Qts7MWn/AKtJrgGxUtmtw0N72kNN7i44z0nTSktmKSJgRI3WDeErSRARoTiCTGALQY5jRgaMRjAxnawvAbKwM1tkbTqYclkOh8yncwH2PWZdNbyd3yiTKKkqa0BOjZrbZwjnO+EXNxNkNz34+0i//obaU6CoP8/KBMMm8IMACeQMzWGO2vu/5K5mWGqVcbWWn4VyXYsAbKLi5sTrwAnbUEsLKSx3F31J9t/YaTk/hLZmfNXqMQhbRQSAxU3u1t4BOg5zr6lSyltygX3am3ADhy/SY8W1ahHZfkGZ+MPjJBJyi3fi1uH5faUsbi1prne+U6EgX1Pl9Du9pPTuNCbnffnc6/X7iYXxDjlFN6NjmzLbllJzXHa1pGHHzTS6foDnsBYVKbHRfmLfsGUn9faerObuByFz3Oi/+U8yXD5ky8eHedX8F170KjMSz5yWJNyfAuW5Pa06uMjzR5l009wuzRxpC1Dr5lDeo8LXPbJM/aLFKbEJnWxzLexCkWJXn2mrtBAqIxOobU88+h9L2P8AtlCs4RS1iUAuQNbDiQOI6Tig9Yta/uhHH7Lchel5ok31mVhCM7hfLmOXtc2+lpdBnpZfmJluHXQESicOVIemSrKbgg8RL6PeCycooya2BNos4P4oqCsrVgQmQI4W9tCSHA567hwvNXae3KXzaYzK1J0N3XUoxOjdN2o6znK9IHeJV/Y1h8PHJ8zVaUVaOm2psBKmq2ViLq6+V+OoH+d5zdLMjGm4syy1s/a1XDjIRnpflbh/Cfwn6Qts4qjWUVKbFXWwKOLMV6HcxHvaVCMl4Xquj7DqyK8YMIFKoGF4UmiA21kRhXtGbdGUAYxivGgBfvGZR+I/52ka4frJEQDhHQBKfQSOra+p9IVV7d5XtziJHgYlrUz10hXkGPbwgdf7xxXiQ1udp8MYBadJWvndgCRe+QN4goF7Lv1PMmX8e7aLp+YgchuFzzP/AGyPYaItBBSBVbeZlsXPF7HgeZkLNdi2vi3X4W3fSeblbeWTY2QY3EimnzDcqtr235W0/UH0nI47ECtXZx5dAvYCwP3Mvba2mXz0FXc5BPNQb29/tKNFAPSduDH8ONvf9DeiJ0FpHQqfLrIcxCNURmHDwsDr2uZJeR16YdbGaReupKdHoLZagcKwNrppwa1z63K+0yqlTKhfKTpdlG/rYHj04zB2P8QDD4d6eXxhrppp4rXLdretxNjaVZ6ILoMyKczKd5R7HMp6EmcjwSjKul6eZRyWGZc75PLmOXtc2+lpcvKeCFy5AsCxIHLfLN525F4iZLUImGKkhimYickESEiJXtDuDGBG4ld8MDwlthIrxptbDWhBQQqbcDJTEYhG3YbizQg0Axh3gMdxBhtugRgSGu3OWqd7aymm8d5Zcm2m+AA1Kgvpv5yMGCRbfGvJAkUyvjVzL9TJhoJDiG8J7So/MhLc7TYuKq16ed8qI11REFvCnmYk67/DMLaW3Q9NDTNnzBiB+GwIseYN/aS19tCnhKdOnq70gDb8AJOY/wARP2vMShQAF7a2kRwx5nOSrXQug8HTOubUk6mSxYc2NuckZBe8qTshuwCYl5QLx7yaEQ4iiGB5zoMDjhVwpDeZKbo44lQpKN20Yd5ikytUzISyG1wVa3EHfeXSkqf0KXYl2d5fUyQmQ7POklbQwn8wSHvFBJjXkUSETGvGvGvGAYeEbGQ3izQKJHEBd8QeFmEYEZEUk3wCtowEpiYRoQ1gAeHXjHrPbQQsONPWBVtfmYARARweUYmOogAV+EhxB8JhxPrGtHYFahR4/wCCaD6KBGw4sJEz31MJOxvUcGWAbj0lW8lo1OEmhAiK8ke1jIQYqAkaCDGzaRs0AJaFPLu3Rqh1ipPAc6xsBRQYoCoe8aKKFDFFFFGAooooAKGH5wIoAEVjARrx80AN6nuEgbee5jxSyxJx7Rh/ntHigAMc8I8UAJfw+kgiiiAaKKKMCZ90hiiiAeOI8UACXeYNTfHigAEUUUAFFFFGAooooAKKKKACiiigAooooAf/2Q=="
+        type="image/jpg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
     <title>
         Motachi Shop.com
     </title>
 </head>
 
 <body>
-    <div id="page" class="wrapper_page">
-        <header>
-            <div class="header-main container">
+    <div class="-fluid">
+        <div id="page" class="wrapper_page">
+            <header>
+                <div class="container">
+                    <div class="header-main ">
 
-                <div class="x">
 
-                    <div class="row">
 
-                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 header-left">
+                        <div class="row">
 
-                            <div class="th-item hotline">
-                                <p>
-                                    <i class="fa fa-user">
+                            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 header-left" style="padding-top: 15px;">
 
-                                    </i>
-                                    <span href="#" title="Tổng đài có tính phí - tối thiểu 3000đ/phút"
-                                        type="Tổng đài có tính phí - tối thiểu 3000đ/phút">
-                                        0338106666 - MotachiShop@gmail.com
-                                    </span>
-                                </p>
+                                <div class="th-item hotline">
+                                    <p>
+                                        <i class="fa fa-user">
+
+                                        </i>
+                                        <span href="#" title="Tổng đài có tính phí - tối thiểu 3000đ/phút" type="Tổng đài có tính phí - tối thiểu 3000đ/phút">
+                                            0338106666 - MotachiShop@gmail.com
+                                        </span>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4 col-md-3 col-sm-12 col-xs-12 header-center hidden-xs hidden-sm">
+
+                                <div class="">
+                                    <span class="th-item slogan"> BE A BALLER.</span>
+                                </div>
+
+                            </div>
+                            <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12 header-right hidden-xs hidden-sm">
+                                <div class="pull-right">
+                                    <div class="menutop">
+                                        <ul class="clearfix" style="display:flex">
+
+
+
+
+
+                                            <li class="menutop-item" style="list-style-type: none;margin-right: 10px;">
+                                                <a data-toggle="modal" class="menutop-name btn_modal_login" style="text-decoration: none;" href="/account/login">Đăng nhập</a>
+                                            </li>
+
+                                            <li class="menutop-item" style="list-style-type: none;margin-right: 10px;">
+                                                <a data-toggle="modal" class="menutop-name btn_modal_login" href="/account/register" style="text-decoration: none;">Đăng ký</a>
+                                            </li>
+
+
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="col-lg-4 col-md-3 col-sm-12 col-xs-12 header-center hidden-xs hidden-sm">
-
-                            <div class="">
-                                <span class="th-item slogan"> BE A BALLER.</span>
-                            </div>
-
-                        </div>
-                        <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12 header-right hidden-xs hidden-sm">
-                            <div class="pull-right">
-                                <div class="menutop">
-                                    <ul class="clearfix">
-                                        <li class="menutop-item">
-                                            <a data-toggle="modal" class="menutop-name btn_modal_login"
-                                                href="/account/login">Đăng nhập</a>
-                                        </li>
-
-                                        <li class="menutop-item">
-                                            <a data-toggle="modal" class="menutop-name btn_modal_login"
-                                                href="/account/register">Đăng ký</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
-
-        </header>
-        <div class="under_header">
-            <div class="under_header_content container">
-                <div class="row">
-                    <div class="col-md-2 col-sm-12 col-header-left">
-
-                        <h1>
-                            <a href="#" title="MotachiShop.COM">
-                                <img src="E:\GitHub\DATN\images\iconlogo.jpg" width="70px" height="70px" alt="Motachi">
-                            </a>
-                        </h1>
-
-                    </div>
-                    <div class="col-md-10 col-sm-12 col-header-right hidden-xs">
-
-                        <div class="menubottom menubottom-icon ">
-
-                            <div class="menubottom-item">
-                                <div class="iconbox">
-                                    <i class="fa fa-life-ring"></i>
-                                </div>
-                                <div class="contentbox">
-                                    <h4>
-                                        <a href="#" title="Hỏi Đáp" rel="dofollow">
-                                            <span>Hỏi Đáp</span>
-                                        </a>
-                                    </h4>
-                                    <small>Mua hàng Online</small>
-                                </div>
-                            </div>
 
 
-                            <div class="menubottom-item">
-                                <div class="iconbox">
-                                    <i class="fa fa-refresh"></i>
-                                </div>
-                                <div class="contentbox">
-                                    <h4>
-                                        <a href="#" title="Đổi trả hàng" rel="dofollow">
-                                            <span>Đổi trả hàng</span>
-                                        </a>
-                                    </h4>
-                                    <small>Lên tới 45 ngày (*)</small>
-                                </div>
-                            </div>
-
-
-                            <div class="menubottom-item">
-                                <div class="iconbox">
-                                    <i class="fa fa-truck"></i>
-                                </div>
-                                <div class="contentbox">
-                                    <h4>
-                                        <a href="#" title="Giao hàng" rel="">
-                                            <span>Giao hàng</span>
-                                        </a>
-                                    </h4>
-                                    <small>Ship COD toàn quốc</small>
-                                </div>
-                            </div>
-
-
-                            <div class="menubottom-item item-location">
-                                <div class="iconbox">
-                                    <i class="fa fa-map-marker"></i>
-                                </div>
-                                <div class="contentbox">
-                                    <h4>
-                                        <a href="#" title="Hệ Thống cửa hàng" rel="">
-                                            <span>Hệ Thống cửa hàng</span>
-                                        </a>
-                                    </h4>
-                                    <small>76/30 Xóm Đất</small>&nbsp;
-                                    <span class="care">+</span>
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-                </div>
+            </header>
             </div>
-        </div>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">Trang chủ</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
+            <div class="duongthang">
+
+            </div>
+            <div class="container">
+                <div class="under_header ">
+                    <div class="under_header_content ">
+
+                        <div class="row">
+                            <div class="col-md-2 col-sm-12 col-header-left">
+
+                                <h1>
+                                    <a href="#" title="MotachiShop.COM">
+                                        <img src="data:image/jpeg;base64,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"
+                                            width="70px" height="70px" alt="Motachi">
+                                    </a>
+                                </h1>
+
+                            </div>
+                            <div class="col-md-10 col-sm-12 col-header-right hidden-xs">
+
+                                <div class="menubottom menubottom-icon ">
+
+                                    <div class="menubottom-item">
+                                        <div class="iconbox">
+                                            <i class="fa fa-life-ring"></i>
+                                        </div>
+                                        <div class="contentbox">
+                                            <h6>
+                                                <a href="#" title="Hỏi Đáp" rel="dofollow" style="text-decoration: none;">
+                                                    <span>Hỏi Đáp</span>
+                                                </a>
+                                            </h6>
+                                            <small>Mua hàng Online</small>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="menubottom-item">
+                                        <div class="iconbox">
+                                            <i class="fa fa-refresh"></i>
+                                        </div>
+                                        <div class="contentbox">
+                                            <h6>
+                                                <a href="#" title="Đổi trả hàng" rel="dofollow" style="text-decoration: none;">
+                                                    <span>Đổi trả hàng</span>
+                                                </a>
+                                            </h6>
+                                            <small>Lên tới 45 ngày (*)</small>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="menubottom-item">
+                                        <div class="iconbox">
+                                            <i class="fa fa-truck"></i>
+                                        </div>
+                                        <div class="contentbox">
+                                            <h6>
+                                                <a href="#" title="Giao hàng" rel="" style="text-decoration: none;">
+                                                    <span>Giao hàng</span>
+                                                </a>
+                                            </h6>
+                                            <small>Ship COD toàn quốc</small>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="menubottom-item item-location">
+                                        <div class="iconbox">
+                                            <i class="fa fa-map-marker"></i>
+                                        </div>
+                                        <div class="contentbox">
+                                            <h6>
+                                                <a href="#" title="Hệ Thống cửa hàng" rel="" style="text-decoration: none;">
+                                                    <span>Hệ Thống cửa hàng</span>
+                                                </a>
+                                            </h6>
+                                            <small>76/30 Xóm Đất</small>&nbsp;
+                                            <span class="care">+</span>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <nav class="navbar navbar-expand-lg navbar-light bg-light ">
+
+                    <a class="navbar-brand" href="http://127.0.0.1:5500/DATN-main  ">Trang chủ</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Quần áo</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Giày dép</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Phụ kiện
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#">S</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Liên Hệ</a>
-                        </li>
-                    </ul>
-                    <form class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="Tìm Kiếm Sản Phẩm"
-                            aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
+                    <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+
+                                <div class="dropdown">
+                                    <button class="dropbtn">Sản Phẩm</button>
+                                    <div class="dropdown-content">
+                                        <a href="http://127.0.0.1:5500/DATN-main/Dong-phuc-bong-ro.html">Đồng phục bóng rổ</a>
+                                        <a href="#">Áo tập bóng rổ</a>
+                                        <a href="#">Quần tập bóng rổ</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="nav-item" style="padding-top: 10px;">
+                                <a class="nav-link" href="#">Phụ Kiện</a>
+                            </li>
+                            <li class="nav-item" style="padding-top: 10px;">
+                                <a class="nav-link" href="#">Khuyến Mãi</a>
+                            </li>
+                            <li class="nav-item" style="padding-top: 10px;">
+                                <a class="nav-link" href="#">Liên Hệ</a>
+                            </li>
+                        </ul>
+                        <form class="d-flex">
+                            <input class="form-control me-2" type="search" placeholder="Tìm Kiếm Sản Phẩm" aria-label="Search">
+                            <button class="btn btn-outline-success" type="submit">Search</button>
+                        </form>
+                    </div>
+
+                </nav>
+
+                <div class="full-slide ">
+                    <div id="pav-slideShow">
+                        <div id="owl-demo" class="slider-owl owl-carousel owl-theme owl-loaded">
+                            <div class="owl-stage-outer">
+                                <div class="owl-stage" style="width: 10250px; transform: translate3d(-4600px, 0px, 0px); transition: all 0.25s ease 0s;">
+                                    <div class="owl-item cloned" style="width: 1140px; margin-right: 10px;">
+                                        <div class="item">
+                                            <a href="https://phukienbongro.com/collections/dat-do-bong-ro">
+                                                <img src="//theme.hstatic.net/1000372304/1000477951/14/slideshow_3.jpg?v=355" alt="PHUKIENBONGRO.COM tài trợ giải bóng rổ 2017">
+                                            </a>
+
+                                            <h3>PHUKIENBONGRO.COM tài trợ giải bóng rổ 2017</h3>
+
+                                        </div>
+                                    </div>
+                                    <div class="owl-item cloned" style="width: 1140px; margin-right: 10px;">
+                                        <div class="item">
+                                            <a href="https://phukienbongro.com/collections/phu-kien-bong-ro-balo-bong-ro">
+                                                <img src="//theme.hstatic.net/1000372304/1000477951/14/slideshow_7.jpg?v=355" alt="Balo Bóng Rổ Thiết Kế Theo Yêu Cầu">
+                                            </a>
+
+                                            <h3>Balo Bóng Rổ Thiết Kế Theo Yêu Cầu</h3>
+
+                                        </div>
+                                    </div>
+                                    <div class="owl-item" style="width: 1140px; margin-right: 10px;">
+                                        <div class="item">
+                                            <a href="https://phukienbongro.com/collections/dat-do-bong-ro">
+                                                <img src="//theme.hstatic.net/1000372304/1000477951/14/slideshow_2.jpg?v=355" alt="Nhà tài trợ PHUKIENBONGRO.COM">
+                                            </a>
+
+                                            <h3>Nhà tài trợ PHUKIENBONGRO.COM</h3>
+
+                                        </div>
+                                    </div>
+                                    <div class="owl-item" style="width: 1140px; margin-right: 10px;">
+                                        <div class="item">
+                                            <a href="https://phukienbongro.com/collections/dat-do-bong-ro">
+                                                <img src="//theme.hstatic.net/1000372304/1000477951/14/slideshow_3.jpg?v=355" alt="PHUKIENBONGRO.COM tài trợ giải bóng rổ 2019">
+                                            </a>
+
+                                            <h3>PHUKIENBONGRO.COM tài trợ giải bóng rổ 2019</h3>
+
+                                        </div>
+                                    </div>
+                                    <div class="owl-item active" style="width: 1140px; margin-right: 10px;">
+                                        <div class="item">
+                                            <a href="/collections/all">
+                                                <img src="//theme.hstatic.net/1000372304/1000477951/14/slideshow_4.jpg?v=355" alt="PHUKIENBONGRO.COM tài trợ giải bóng rổ 2018">
+                                            </a>
+
+                                            <h3>PHUKIENBONGRO.COM tài trợ giải bóng rổ 2018</h3>
+
+                                        </div>
+                                    </div>
+                                    <div class="owl-item" style="width: 1140px; margin-right: 10px;">
+                                        <div class="item">
+                                            <a href="https://phukienbongro.com/collections/dat-do-bong-ro">
+                                                <img src="//theme.hstatic.net/1000372304/1000477951/14/slideshow_5.jpg?v=355" alt="PHUKIENBONGRO.COM tài trợ giải bóng rổ 2017">
+                                            </a>
+
+                                            <h3>PHUKIENBONGRO.COM tài trợ giải bóng rổ 2017</h3>
+
+                                        </div>
+                                    </div>
+                                    <div class="owl-item" style="width: 1140px; margin-right: 10px;">
+                                        <div class="item">
+                                            <a href="https://phukienbongro.com/collections/phu-kien-bong-ro-balo-bong-ro">
+                                                <img src="//theme.hstatic.net/1000372304/1000477951/14/slideshow_7.jpg?v=355" alt="Balo Bóng Rổ Thiết Kế Theo Yêu Cầu">
+                                            </a>
+
+                                            <h3>Balo Bóng Rổ Thiết Kế Theo Yêu Cầu</h3>
+
+                                        </div>
+                                    </div>
+                                    <div class="owl-item cloned" style="width: 1140px; margin-right: 10px;">
+                                        <div class="item">
+                                            <a href="https://phukienbongro.com/collections/dat-do-bong-ro">
+                                                <img src="//theme.hstatic.net/1000372304/1000477951/14/slideshow_2.jpg?v=355" alt="Nhà tài trợ PHUKIENBONGRO.COM">
+                                            </a>
+
+                                            <h3>Nhà tài trợ PHUKIENBONGRO.COM</h3>
+
+                                        </div>
+                                    </div>
+                                    <div class="owl-item cloned" style="width: 1140px; margin-right: 10px;">
+                                        <div class="item">
+                                            <a href="https://phukienbongro.com/collections/dat-do-bong-ro">
+                                                <img src="//theme.hstatic.net/1000372304/1000477951/14/slideshow_3.jpg?v=355" alt="PHUKIENBONGRO.COM tài trợ giải bóng rổ 2019">
+                                            </a>
+
+                                            <h3>PHUKIENBONGRO.COM tài trợ giải bóng rổ 2019</h3>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="owl-controls">
+                                <div class="owl-nav">
+                                    <div class="owl-prev" style="display: none;">prev</div>
+                                    <div class="owl-next" style="display: none;">next</div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+
+                    <div id="home-banner" class="clearfix">
+
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <div class="block-banner">
+                                <a class="banner-hover1" href="https://phukienbongro.com/collections/do-tap-bong-ro?sort_by=created-descending" title="">
+                                    <img class="img-old img-responsive" alt="ao-quan-do-tap-bong-ro" src="//theme.hstatic.net/1000372304/1000477951/14/banner_home1.jpg?v=355" style="padding-right: 100px;" width="650px" height="250px">
+                                </a>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <div class="block-banner">
+                                <a class="banner-hover2" href="http://www.phukienbongro.com/collections/dong-phuc-bong-ro" title="">
+                                    <img class="img-old img-responsive" alt="dat-do-bong-ro-theo-yeu-cau" src="//theme.hstatic.net/1000372304/1000477951/14/banner_home2.jpg?v=355" style="padding-left: 10px;padding-right: 100px;" width="650px" height="250px">
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <ul class="nav nav-pills">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Tin mới nhất</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Hướng dẫn mua hàng</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Tin khuyến mãi</a>
+                    </li>
+                </ul>
+
+
+                <div class="newshome-show">
+                    <div class="tab-content tabs-news">
+
+                        <div id="tab_1" class="tab-item">
+                            <div id="myCarouselnews1" class="myCarouselnews carousel slide">
+                                <div class="carousel-inner">
+
+
+
+
+
+                                    <div class="row item active">
+
+
+
+
+
+                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 mt10">
+                                            <div class="media-box">
+                                                <a class="pull-left" href="/blogs/tin-tuc/thuong-hieu-dong-phuc-bong-ro-gtsports-tai-tro-giai-dau-eazyball">
+
+                                                    <img alt="Thương hiệu GTSports chính thức tài trợ cho giải đấu EazyBall" src="https://file.hstatic.net/1000372304/article/giai-bong-ro-eazy-ball-dat-dong-phuc-bong-ro-tai-sai-gon_16243be976f14a4692a94181f654a318.jpg" width="162px" height="104px" class="img-responsive">
+
+                                                </a>
+                                                <div class="media-body">
+                                                    <h6 class="media-heading">
+                                                        <a href="/blogs/tin-tuc/thuong-hieu-dong-phuc-bong-ro-gtsports-tai-tro-giai-dau-eazyball">Thương hiệu GTSports chính thức tài trợ cho giải đấu EazyBall</a>
+                                                    </h6>
+                                                    <div>Với các baller tại TPHCM và Vũng Tàu, ắt hẳn không...</div>
+                                                </div>
+                                                <div class="clear"></div>
+                                            </div>
+                                        </div>
+
+
+
+
+
+                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 mt10">
+                                            <div class="media-box">
+                                                <a class="pull-left" href="/blogs/tin-tuc/gamehoopvn-trang-blog-tin-tuc-bong-ro-dua-tin-ve-cac-doi-bong-khong-chuyen-tren-toan-quoc">
+
+                                                    <img alt="GameHoopVN - Trang Blog Tin Tức Bóng Rổ Đưa Tin Về Các Đội Bóng Không Chuyên Toàn Quốc" src="https://file.hstatic.net/1000372304/article/trang-tin-tuc-bong-ro-viet-nam-nba-uy-tin_89f58705aa0d495ba1f9377de9bf0e4e.jpg" width="162px" height="104px"
+                                                        class="img-responsive">
+
+                                                </a>
+                                                <div class="media-body">
+                                                    <h6 class="media-heading">
+                                                        <a href="/blogs/tin-tuc/gamehoopvn-trang-blog-tin-tuc-bong-ro-dua-tin-ve-cac-doi-bong-khong-chuyen-tren-toan-quoc">GameHoopVN - Trang Blog Tin Tức Bóng Rổ Đưa Tin Về Các Đội Bóng Không Chuyên...</a>
+                                                    </h6>
+                                                    <div>Trang GameHoopVN...</div>
+                                                </div>
+                                                <div class="clear"></div>
+                                            </div>
+                                        </div>
+
+
+
+
+
+                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 mt10">
+                                            <div class="media-box">
+                                                <a class="pull-left" href="/blogs/tin-tuc/nhung-bai-tap-khong-nen-bo-qua-khi-gian-cach-tai-nha-phan-1">
+
+                                                    <img alt="Những Bài Tập KHÔNG NÊN BỎ QUA Khi Giãn Cách Tại Nhà ( Phần 1)" src="https://file.hstatic.net/1000372304/article/tip-tap-luyen-bong-ro-tai-nha-1_bbf29d5c5c224bd5a7ed857339a19bbb.jpg" width="162px" height="104px" class="img-responsive">
+
+                                                </a>
+                                                <div class="media-body">
+                                                    <h6 class="media-heading">
+                                                        <a href="/blogs/tin-tuc/nhung-bai-tap-khong-nen-bo-qua-khi-gian-cach-tai-nha-phan-1">Những Bài Tập KHÔNG NÊN BỎ QUA Khi Giãn Cách Tại Nhà ( Phần 1)</a>
+                                                    </h6>
+                                                    <div>Xin chào mọi người, vậy là mùa giãn cách </div>
+                                                </div>
+                                                <div class="clear"></div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+
+                            <script src="js/jquery-3.6.0.min.js"></script>
+                            <script src="js/owl.carousel.min.js"></script>
+                            <script src="js/script.js"></script>
+                            <!-- <script src="//hstatic.net/0/0/global/design/js/jquery.min.1.11.0.js"></script>
+        <script src="//hstatic.net/0/0/global/api.jquery.js" type="text/javascript"></script>
+        <script src="//hstatic.net/0/0/global/design/theme-default/jquery-migrate-1.2.0.min.js"></script>
+        <script src="//hstatic.net/0/0/global/design/theme-default/jquery.touchSwipe.min.js"
+            type="text/javascript"></script>
+        <script src="//hstatic.net/0/0/global/design/theme-default/jquery.flexslider.js" type="text/javascript"></script> -->
+                        </div>
+                    </div>
+                </div>
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+                    <a class="navbar-brand" href="#">SẢN PHẨM MỚI</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a href="/collections/ao-khoac-bong-ro">
+
+                                    <img src="//theme.hstatic.net/1000372304/1000477951/14/img_logo_tabs_1.png?v=355" alt="">
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/collections/ao-phong-bong-ro">
+
+                                    <img src="//theme.hstatic.net/1000372304/1000477951/14/img_logo_tabs_2.png?v=355" alt="">
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/collections/dong-phuc-bong-ro">
+
+                                    <img src="//theme.hstatic.net/1000372304/1000477951/14/img_logo_tabs_3.png?v=355" alt="">
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/collections/do-tap-bong-ro">
+
+                                    <img src="//theme.hstatic.net/1000372304/1000477951/14/img_logo_tabs_4.png?v=355" alt="">
+                                </a>
+                            </li>
+                            <li class="logo-owl-item">
+                                <a href="/collections/dat-do-bong-ro">
+
+                                    <img src="//theme.hstatic.net/1000372304/1000477951/14/img_logo_tabs_7.png?v=355" alt="">
+                                </a>
+                            </li>
+                            <li class="logo-owl-item">
+                                <a href="/collections/dat-dong-phuc-bong-ro">
+
+                                    <img src="//theme.hstatic.net/1000372304/1000477951/14/img_logo_tabs_8.png?v=355" alt="">
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/collections/ao-khoac-bong-ro">
+
+                                    <img src="//theme.hstatic.net/1000372304/1000477951/14/img_logo_tabs_1.png?v=355" alt="">
+                                </a>
+                            </li>
+
+                            <li class="logo-owl-item">
+                                <a href="/collections/giay-bong-ro">
+
+                                    <img src="//theme.hstatic.net/1000372304/1000477951/14/img_logo_tabs_9.png?v=355" alt="">
+                                </a>
+                            </li>
+                            <li class="logo-owl-item">
+                                <a href="/collections/jiba-sport-apparel">
+
+                                    <img src="//theme.hstatic.net/1000372304/1000477951/14/img_logo_tabs_11.png?v=355" alt="">
+                                </a>
+                            </li>
+                            <li class="logo-owl-item">
+                                <a href="/collections/dat-do-bong-ro">
+
+                                    <img src="//theme.hstatic.net/1000372304/1000477951/14/img_logo_tabs_7.png?v=355" alt="">
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+
+                </nav>
+                <div class="card-column">
+                    <div class="card-group">
+
+                        <div class="card">
+                            <img class="img-responsive image-resize" src="//product.hstatic.net/1000372304/product/mua-banh-bong-ro-swish-chinh-hang_d8eb7eb915034faf9eb480455c9b0efa_large.jpg" alt=" Banh Bóng Rổ Chính Hãng Swish - Bóng Da (Indoor/Outdoor) " style="height: 250px;">
+                            <div class="card-body">
+                                <h5 class="card-title">Bóng rổ swish chính hãng</h5>
+                                <h6 class="card-subtitle mb-1 text-muted">500.000đ</h6>
+                                <div class="canbang">
+                                    <i class="fa fa-shopping-cart" style="font-size:40px;color:red"></i>
+                                    <a href="#" class="btn btn-primary">Thêm vào giỏ hàng</a>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="card">
+                            <img class="img-responsive image-resize" src="//product.hstatic.net/1000372304/product/ao-bong-ro-kobe-ao-kobe-bong-ro_c9e9aa754cb8493fb9ead63456c2b315_large.jpg" alt=" Áo phông bóng rổ Tưởng niệm Kobe 2020 " style="height: 250px;">
+                            <div class="card-body">
+                                <h5 class="card-title">Áo phông bóng rổ Tưởng niệm Kobe 2020</h5>
+                                <h6 class="card-subtitle mb-1 text-muted">300.000đ</h6>
+                                <div class="canbang">
+                                    <i class="fa fa-shopping-cart" style="font-size:40px;color:red"></i>
+                                    <a href="#" class="btn btn-primary">Thêm vào giỏ hàng</a>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="card">
+                            <img class="img-responsive image-resize" src="//product.hstatic.net/1000372304/product/ao-thun-bong-ro-kobe-bryant-24-lakers_d58836e6d0464000a1f6e724088ff0eb_large.jpg" alt=" Áo phông bóng rổ Kobe Bryant 2021 " style="height: 250px;">
+                            <div class="card-body">
+                                <h5 class="card-title">Áo phông bóng rổ Kobe Bryant 2021</h5>
+                                <h6 class="card-subtitle mb-1 text-muted">250.000đ</h6>
+                                <div class="canbang">
+                                    <i class="fa fa-shopping-cart" style="font-size:40px;color:red"></i>
+                                    <a href="#" class="btn btn-primary">Thêm vào giỏ hàng</a>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="card">
+                            <img class="img-responsive image-resize" src="//product.hstatic.net/1000372304/product/ao-bong-ro-miami-heat-hong-xanh-moi-2020_411e0704eefa4e8881803aad295d63ac_large.jpg" alt=" Áo bóng rổ Miami Heat 14 Tyler Herro " style="height: 250px;">
+                            <div class="card-body">
+                                <h5 class="card-title">Jersey Miami Heat 14 Hero</h5>
+                                <h6 class="card-subtitle mb-1 text-muted">300.000đ</h6>
+                                <div class="canbang">
+                                    <i class="fa fa-shopping-cart" style="font-size:40px;color:red"></i>
+                                    <a href="#" class="btn btn-primary">Thêm vào giỏ hàng</a>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="card">
+                            <img class="img-responsive image-resize" src="//product.hstatic.net/1000372304/product/ao-polo-coach-viet-nam-basketball_26cacf7cdc2944da99a1b79f248bf764_large.png" alt=" Áo polo coach Việt Nam Basketball (Màu đen) " style="height: 250px;">
+                            <div class="card-body">
+                                <h5 class="card-title">Áo Polo coach Việt Nam basketball</h5>
+                                <h6 class="card-subtitle mb-1 text-muted">300.000đ</h6>
+                                <div class="canbang">
+                                    <i class="fa fa-shopping-cart" style="font-size:40px;color:red"></i>
+                                    <a href="#" class="btn btn-primary">Thêm vào giỏ hàng</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="card-group">
+
+                        <div class="card">
+                            <img class="img-responsive image-resize" src="//product.hstatic.net/1000372304/product/mua-banh-bong-ro-swish-chinh-hang_d8eb7eb915034faf9eb480455c9b0efa_large.jpg" alt=" Banh Bóng Rổ Chính Hãng Swish - Bóng Da (Indoor/Outdoor) " style="height: 250px;">
+                            <div class="card-body">
+                                <h5 class="card-title">Bóng rổ swish chính hãng</h5>
+                                <h6 class="card-subtitle mb-1 text-muted">500.000đ</h6>
+                                <div class="canbang">
+                                    <i class="fa fa-shopping-cart" style="font-size:40px;color:red"></i>
+                                    <a href="#" class="btn btn-primary">Thêm vào giỏ hàng</a>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="card">
+                            <img class="img-responsive image-resize" src="//product.hstatic.net/1000372304/product/ao-bong-ro-kobe-ao-kobe-bong-ro_c9e9aa754cb8493fb9ead63456c2b315_large.jpg" alt=" Áo phông bóng rổ Tưởng niệm Kobe 2020 " style="height: 250px;">
+                            <div class="card-body">
+                                <h5 class="card-title">Áo phông bóng rổ Tưởng niệm Kobe 2020</h5>
+                                <h6 class="card-subtitle mb-1 text-muted">300.000đ</h6>
+                                <div class="canbang">
+                                    <i class="fa fa-shopping-cart" style="font-size:40px;color:red"></i>
+                                    <a href="#" class="btn btn-primary">Thêm vào giỏ hàng</a>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="card">
+                            <img class="img-responsive image-resize" src="//product.hstatic.net/1000372304/product/ao-thun-bong-ro-kobe-bryant-24-lakers_d58836e6d0464000a1f6e724088ff0eb_large.jpg" alt=" Áo phông bóng rổ Kobe Bryant 2021 " style="height: 250px;">
+                            <div class="card-body">
+                                <h5 class="card-title">Áo phông bóng rổ Kobe Bryant 2021</h5>
+                                <h6 class="card-subtitle mb-1 text-muted">250.000đ</h6>
+                                <div class="canbang">
+                                    <i class="fa fa-shopping-cart" style="font-size:40px;color:red"></i>
+                                    <a href="#" class="btn btn-primary">Thêm vào giỏ hàng</a>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="card">
+                            <img class="img-responsive image-resize" src="//product.hstatic.net/1000372304/product/ao-bong-ro-miami-heat-hong-xanh-moi-2020_411e0704eefa4e8881803aad295d63ac_large.jpg" alt=" Áo bóng rổ Miami Heat 14 Tyler Herro " style="height: 250px;">
+                            <div class="card-body">
+                                <h5 class="card-title">Jersey Miami Heat 14 Hero</h5>
+                                <h6 class="card-subtitle mb-1 text-muted">300.000đ</h6>
+                                <div class="canbang">
+                                    <i class="fa fa-shopping-cart" style="font-size:40px;color:red"></i>
+                                    <a href="#" class="btn btn-primary">Thêm vào giỏ hàng</a>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="card">
+                            <img class="img-responsive image-resize" src="//product.hstatic.net/1000372304/product/ao-polo-coach-viet-nam-basketball_26cacf7cdc2944da99a1b79f248bf764_large.png" alt=" Áo polo coach Việt Nam Basketball (Màu đen) " style="height: 250px;">
+                            <div class="card-body">
+                                <h5 class="card-title">Áo Polo coach Việt Nam basketball</h5>
+                                <h6 class="card-subtitle mb-1 text-muted">300.000đ</h6>
+                                <div class="canbang">
+                                    <i class="fa fa-shopping-cart" style="font-size:40px;color:red"></i>
+                                    <a href="#" class="btn btn-primary">Thêm vào giỏ hàng</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="card-group">
+
+                        <div class="card">
+                            <img class="img-responsive image-resize" src="//product.hstatic.net/1000372304/product/mua-banh-bong-ro-swish-chinh-hang_d8eb7eb915034faf9eb480455c9b0efa_large.jpg" alt=" Banh Bóng Rổ Chính Hãng Swish - Bóng Da (Indoor/Outdoor) " style="height: 250px;">
+                            <div class="card-body">
+                                <h5 class="card-title">Bóng rổ swish chính hãng</h5>
+                                <h6 class="card-subtitle mb-1 text-muted">500.000đ</h6>
+                                <div class="canbang">
+                                    <i class="fa fa-shopping-cart" style="font-size:40px;color:red"></i>
+                                    <a href="#" class="btn btn-primary">Thêm vào giỏ hàng</a>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="card">
+                            <img class="img-responsive image-resize" src="//product.hstatic.net/1000372304/product/ao-bong-ro-kobe-ao-kobe-bong-ro_c9e9aa754cb8493fb9ead63456c2b315_large.jpg" alt=" Áo phông bóng rổ Tưởng niệm Kobe 2020 " style="height: 250px;">
+                            <div class="card-body">
+                                <h5 class="card-title">Áo phông bóng rổ Tưởng niệm Kobe 2020</h5>
+                                <h6 class="card-subtitle mb-1 text-muted">300.000đ</h6>
+                                <div class="canbang">
+                                    <i class="fa fa-shopping-cart" style="font-size:40px;color:red"></i>
+                                    <a href="#" class="btn btn-primary">Thêm vào giỏ hàng</a>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="card">
+                            <img class="img-responsive image-resize" src="//product.hstatic.net/1000372304/product/ao-thun-bong-ro-kobe-bryant-24-lakers_d58836e6d0464000a1f6e724088ff0eb_large.jpg" alt=" Áo phông bóng rổ Kobe Bryant 2021 " style="height: 250px;">
+                            <div class="card-body">
+                                <h5 class="card-title">Áo phông bóng rổ Kobe Bryant 2021</h5>
+                                <h6 class="card-subtitle mb-1 text-muted">250.000đ</h6>
+                                <div class="canbang">
+                                    <i class="fa fa-shopping-cart" style="font-size:40px;color:red"></i>
+                                    <a href="#" class="btn btn-primary">Thêm vào giỏ hàng</a>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="card">
+                            <img class="img-responsive image-resize" src="//product.hstatic.net/1000372304/product/ao-bong-ro-miami-heat-hong-xanh-moi-2020_411e0704eefa4e8881803aad295d63ac_large.jpg" alt=" Áo bóng rổ Miami Heat 14 Tyler Herro " style="height: 250px;">
+                            <div class="card-body">
+                                <h5 class="card-title">Jersey Miami Heat 14 Hero</h5>
+                                <h6 class="card-subtitle mb-1 text-muted">300.000đ</h6>
+                                <div class="canbang">
+                                    <i class="fa fa-shopping-cart" style="font-size:40px;color:red"></i>
+                                    <a href="#" class="btn btn-primary">Thêm vào giỏ hàng</a>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="card">
+                            <img class="img-responsive image-resize" src="//product.hstatic.net/1000372304/product/ao-polo-coach-viet-nam-basketball_26cacf7cdc2944da99a1b79f248bf764_large.png" alt=" Áo polo coach Việt Nam Basketball (Màu đen) " style="height: 250px;">
+                            <div class="card-body">
+                                <h5 class="card-title">Áo Polo coach Việt Nam basketball</h5>
+                                <h6 class="card-subtitle mb-1 text-muted">300.000đ</h6>
+                                <div class="canbang">
+                                    <i class="fa fa-shopping-cart" style="font-size:40px;color:red"></i>
+                                    <a href="#" class="btn btn-primary">Thêm vào giỏ hàng</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="pagination">
+                        <a id="load_more_button" class="load_more" href="/collections/san-pham-noi-bat">Xem thêm sảm phẩm</a>
+                    </div>
+
+
+                    <div id="randomNews " class=" mbl ">
+                        <div class="row " style="margin-left: 1px; ">
+                            <div class="block_content newslist_style1 ">
+                                <div class="item ">
+                                    <h2 class="block_title pull-left ">
+                                        <span>Có thể bạn quan tâm</span>
+                                    </h2>
+                                    <div class="arrow-right pull-left "></div>
+                                </div>
+                                <div class="canbang2 ">
+                                    <marquee behavior="scroll " direction="left " onmouseover="this.stop(); " onmouseout="this.start(); " style="line-height: 44px; ">
+
+
+
+
+
+                                        <a class="flever_15 " href="# " title="Balo Bóng Rổ Thiết Kế Theo Yêu Cầu " style="text-decoration:none;margin-right: 400px; ">
+                                            May đồ bóng rổ
+                                        </a>
+
+
+
+
+
+
+                                        <a class="flever_15 " href="# " title="Balo Bóng Rổ Thiết Kế Theo Yêu Cầu " style="text-decoration:none ;margin-right: 400px; ">
+                                            Đặt đồ bóng rổ
+                                        </a>
+
+
+
+
+
+
+                                        <a class="flever_15 " href="# " title="Balo Bóng Rổ Thiết Kế Theo Yêu Cầu " style="text-decoration:none;margin-right: 400px; ">
+                                            Xưởng may đồ bóng rổ
+                                        </a>
+
+
+
+
+
+
+                                        <a class="flever_15 " href="# " title="Balo Bóng Rổ Thiết Kế Theo Yêu Cầu " style="text-decoration:none;margin-right: 400px; ">
+                                            Shop đồ bóng rổ 
+                                        </a>
+
+
+
+
+
+
+
+                                    </marquee>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <footer class="footer ">
+                        <div class="row">
+                            <div class="col-lg-5 col-md-5 col-sm-12">
+                                <div class="row">
+
+                                    <div class="col-lg-6 col-md-6 col-sm-6 ">
+                                        <div class="footer-col">
+
+
+
+                                            <div class="footer-col-tp clearfix">
+                                                <div class="title-footer">
+                                                    <h3></h3>
+                                                </div>
+                                                <ul class="linklist">
+
+                                                    <li>
+                                                        <a href="/search" style="text-decoration: none;">
+                                                            <span>Tìm kiếm</span>
+                                                        </a>
+                                                    </li>
+
+                                                    <li>
+                                                        <a href="/pages/about-us" style="text-decoration: none;">
+                                                            <span>Giới thiệu</span>
+                                                        </a>
+                                                    </li>
+
+                                                    <li>
+                                                        <a href="/pages/dieu-khoan-dich-vu" style="text-decoration: none;">
+                                                            <span>Điều khoản dịch vụ</span>
+                                                        </a>
+                                                    </li>
+
+                                                    <li>
+                                                        <a href="/pages/chinh-sach-thanh-toan" style="text-decoration: none;">
+                                                            <span>Chính sách thanh toán</span>
+                                                        </a>
+                                                    </li>
+
+                                                    <li>
+                                                        <a href="/pages/chinh-sach-giao-hang" style="text-decoration: none;">
+                                                            <span>Chính sách giao hàng</span>
+                                                        </a>
+                                                    </li>
+
+                                                    <li>
+                                                        <a href="/pages/chinh-sach-doi-tra" style="text-decoration: none;">
+                                                            <span>Chính sách đổi trả</span>
+                                                        </a>
+                                                    </li>
+
+                                                    <li>
+                                                        <a href="/pages/chinh-sach-bao-mat" style="text-decoration: none;">
+                                                            <span>Chính sách bảo mật</span>
+                                                        </a>
+                                                    </li>
+
+                                                    <li>
+                                                        <a href="/pages/lien-he" style="text-decoration: none;">
+                                                            <span>Liên hệ</span>
+                                                        </a>
+                                                    </li>
+
+                                                    <li>
+                                                        <a href="/pages/chinh-sach-bao-hanh">
+                                                            <span>Chính sách bảo hành</span>
+                                                        </a>
+                                                    </li>
+
+                                                </ul>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-lg-6 col-md-6 col-sm-6 ">
+                                        <div class="footer-col">
+                                            <div class="title-footer">
+                                                <h3>Địa chỉ Showroom</h3>
+                                            </div>
+                                            <div class="address-showroom">
+
+
+
+
+
+                                                <div class="item">
+                                                    <div class="name">33 Cộng Hòa 3, Phường Tân Thành, Tân Phú, Hồ Chí Minh</div>
+                                                    <div class="phone">19002191</div>
+                                                </div>
+
+
+
+
+
+
+                                                <div class="item">
+                                                    <div class="name">109/1L Lạc Long Quân, Phường 3, Quận 11, TP.HCM</div>
+                                                    <div class="phone">19002191</div>
+                                                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-lg-7 col-md-7 col-sm-12">
+
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-menu-footer">
+                                    <div class="footer-col">
+
+                                        <div class="menu-linlist-ft clearfix">
+                                            <div class="title-footer">
+                                                <h3>Liên kết</h3>
+                                            </div>
+                                            <ul class="linklist">
+
+                                                <li class="link-item active first">
+                                                    <a href="/">Trang chủ</a>
+                                                </li>
+
+                                                <li>
+                                                    <a href="/collections/all">Sản phẩm</a>
+                                                </li>
+
+                                                <li>
+                                                    <a href="/collections/san-pham-noi-bat">Sản phẩm nổi bật</a>
+                                                </li>
+
+                                                <li>
+                                                    <a href="/collections/san-pham-khuyen-mai">Sản phẩm khuyến mãi</a>
+                                                </li>
+
+                                                <li>
+                                                    <a href="/blogs/tin-tuc">Blog</a>
+                                                </li>
+
+                                                <li>
+                                                    <a href="/pages/about-us">Về chúng tôi</a>
+                                                </li>
+
+                                            </ul>
+                                        </div>
+
+
+                                        <div class="footer-col-tp clearfix">
+                                            <div class="title-footer">
+                                                <h3>Fanpage</h3>
+                                            </div>
+                                            <div id="sns_facebook_16999696191449829151" class="sns-facebook">
+                                                <div id="fb-root" class=" fb_reset">
+                                                    <div class="facebook-fanbox" style="overflow-x : hidden;">
+                                                        <div class="fb-like-box fb_iframe_widget" data-href="https://www.facebook.com/phukienbongro.vn/" data-colorscheme="light" data-show-faces="true" data-header="false" data-stream="false" data-width="262" data-show-border="false" fb-xfbml-state="rendered"
+                                                            fb-iframe-plugin-query="app_id=&amp;color_scheme=light&amp;_width=262&amp;header=false&amp;href=https%3A%2F%2Fwww.facebook.com%2Fphukienbongro.vn%2F&amp;locale=vi_VN&amp;sdk=joey&amp;show_border=false&amp;show_faces=true&amp;stream=false&amp;width=262"><span style="vertical-align: bottom; width: 262px; height: 130px;"><iframe name="f2fb8063fac1a7c" width="262px" height="1000px" data-testid="fb:like_box Facebook Social Plugin" title="fb:like_box Facebook Social Plugin" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" src="https://www.facebook.com/v2.6/plugins/like_box.php?app_id=&amp;channel=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Df3b35ed15c4bb08%26domain%3Dphukienbongro.com%26is_canvas%3Dfalse%26origin%3Dhttps%253A%252F%252Fphukienbongro.com%252Ff15b2c2fc23522%26relation%3Dparent.parent&amp;color_scheme=light&amp;_width=262&amp;header=false&amp;href=https%3A%2F%2Fwww.facebook.com%2Fphukienbongro.vn%2F&amp;locale=vi_VN&amp;sdk=joey&amp;show_border=false&amp;show_faces=true&amp;stream=false&amp;width=262" style="border: none; visibility: visible; width: 262px; height: 130px;" class=""></iframe></span></div>
+                                                    </div>
+                                                    <div style="position: absolute; top: -10000px; width: 0px; height: 0px;">
+                                                        <div></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <script>
+                                                jQuery(document).ready(function() {
+                                                    initfb(document, 'script', 'facebook-jssdk');
+                                                });
+
+                                                function initfb(d, s, id) {
+                                                    var js, fjs = d.getElementsByTagName(s)[0];
+                                                    if (d.getElementById(id))
+                                                        return;
+                                                    js = d.createElement(s);
+                                                    js.id = id;
+                                                    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=334341610034299";
+                                                    fjs.parentNode.insertBefore(js, fjs);
+                                                }
+                                            </script>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+                                <div class="account-footer col-lg-6 col-md-6 col-sm-6">
+                                    <div class="footer-col">
+                                        <div class="title-footer title-account">
+                                            <h3>Thông tin tài khoản</h3>
+                                        </div>
+                                        <p class="content-account">
+
+
+
+
+
+
+                                            <span class="branch-account">Vietcombank - CN Hồ Chí Minh</span>
+                                            <br>
+                                            <span>Số tài khoản: </span>
+                                            <span class="number-account">0071001067071</span>
+                                            <br>
+                                            <span class="name-account">Chủ TK: Bùi Thế Hiển</span>
+                                            <br>
+
+
+
+
+
+
+
+                                            <span class="branch-account">Đông Á - CN Ninh Thuận</span>
+                                            <br>
+                                            <span>Số tài khoản: </span>
+                                            <span class="number-account">0102265400</span>
+                                            <br>
+                                            <span class="name-account">Chủ TK: Bùi Thế Hiển</span>
+                                            <br>
+
+
+
+
+
+
+
+                                            <span class="branch-account">Nam Á - CN Hồ Chí Minh</span>
+                                            <br>
+                                            <span>Số tài khoản: </span>
+                                            <span class="number-account">100059157500001</span>
+                                            <br>
+                                            <span class="name-account">Chủ TK: Bùi Thế Hiển</span>
+                                            <br>
+
+
+
+
+
+
+
+                                            <span class="branch-account">Sacombank - CN Bình Tây</span>
+                                            <br>
+                                            <span>Số tài khoản: </span>
+                                            <span class="number-account">060103305201 </span>
+                                            <br>
+                                            <span class="name-account">Chủ TK: Tất Xuân Thảo</span>
+                                            <br>
+
+
+
+
+
+
+
+
+
+                                            <span class="img-logo-chungnhan">
+                                                <a href="http://online.gov.vn/Home/WebDetails/44440" target="_blank">
+                                                    <img alt="logoSaleNoti.png" src="//theme.hstatic.net/1000372304/1000477951/14/img-last-footer.png?v=355">
+                                                </a>
+                                            </span>
+                                            <br>
+
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <address>
+                            <p>
+                                <span>
+                                    © 2019. Công Ty TNHH TMDV Gia Bùi.
+                    </span></p><p>
+                    GPDKKD: 4500586414 do Sở KH&amp;DT cấp ngày 06/11/2014.
+                    </p>
+                    <p>
+                    Địa chỉ: 130/24 Lê Duẩn, Khu phố 10, Phường Phước Mỹ, Thành phố Phan Rang-Tháp Chàm, Tỉnh Ninh Thuận.
+                    </p>
+                    <p>
+                    Hotline: 19002191.
+                    </p>
+                    Email: phukienbongro@gmail.com. 
+                    
+                                
+                            <p></p>
+                        </address>
+                    </footer>
                 </div>
             </div>
-        </nav>
-
-        <div class="full-slide">
-            <div id="pav-slideShow">
-                <div id="owl-demo" class="slider-owl owl-carousel owl-theme owl-loaded">
-                    <div class="owl-stage-outer">
-                        <div class="owl-stage"
-                            style="width: 10350px; transform: translate3d(-4600px, 0px, 0px); transition: all 0.25s ease 0s;">
-                            <div class="owl-item cloned" style="width: 1140px; margin-right: 10px;">
-                                <div class="item">
-                                    <a href="https://phukienbongro.com/collections/dat-do-bong-ro">
-                                        <img src="E:\GitHub\DATN\images\slideshow_3.webp"
-                                            alt="PHUKIENBONGRO.COM tài trợ giải bóng rổ 2017">
-                                    </a>
-
-                                    <h3>PHUKIENBONGRO.COM tài trợ giải bóng rổ 2017</h3>
-
-                                </div>
-                            </div>
-                            <div class="owl-item cloned" style="width: 1140px; margin-right: 10px;">
-                                <div class="item">
-                                    <a href="https://phukienbongro.com/collections/phu-kien-bong-ro-balo-bong-ro">
-                                        <img src="//theme.hstatic.net/1000372304/1000477951/14/slideshow_7.jpg?v=355"
-                                            alt="Balo Bóng Rổ Thiết Kế Theo Yêu Cầu">
-                                    </a>
-
-                                    <h3>Balo Bóng Rổ Thiết Kế Theo Yêu Cầu</h3>
-
-                                </div>
-                            </div>
-                            <div class="owl-item" style="width: 1140px; margin-right: 10px;">
-                                <div class="item">
-                                    <a href="https://phukienbongro.com/collections/dat-do-bong-ro">
-                                        <img src="//theme.hstatic.net/1000372304/1000477951/14/slideshow_2.jpg?v=355"
-                                            alt="Nhà tài trợ PHUKIENBONGRO.COM">
-                                    </a>
-
-                                    <h3>Nhà tài trợ PHUKIENBONGRO.COM</h3>
-
-                                </div>
-                            </div>
-                            <div class="owl-item" style="width: 1140px; margin-right: 10px;">
-                                <div class="item">
-                                    <a href="https://phukienbongro.com/collections/dat-do-bong-ro">
-                                        <img src="//theme.hstatic.net/1000372304/1000477951/14/slideshow_3.jpg?v=355"
-                                            alt="PHUKIENBONGRO.COM tài trợ giải bóng rổ 2019">
-                                    </a>
-
-                                    <h3>PHUKIENBONGRO.COM tài trợ giải bóng rổ 2019</h3>
-
-                                </div>
-                            </div>
-                            <div class="owl-item active" style="width: 1140px; margin-right: 10px;">
-                                <div class="item">
-                                    <a href="/collections/all">
-                                        <img src="//theme.hstatic.net/1000372304/1000477951/14/slideshow_4.jpg?v=355"
-                                            alt="PHUKIENBONGRO.COM tài trợ giải bóng rổ 2018">
-                                    </a>
-
-                                    <h3>PHUKIENBONGRO.COM tài trợ giải bóng rổ 2018</h3>
-
-                                </div>
-                            </div>
-                            <div class="owl-item" style="width: 1140px; margin-right: 10px;">
-                                <div class="item">
-                                    <a href="https://phukienbongro.com/collections/dat-do-bong-ro">
-                                        <img src="//theme.hstatic.net/1000372304/1000477951/14/slideshow_5.jpg?v=355"
-                                            alt="PHUKIENBONGRO.COM tài trợ giải bóng rổ 2017">
-                                    </a>
-
-                                    <h3>PHUKIENBONGRO.COM tài trợ giải bóng rổ 2017</h3>
-
-                                </div>
-                            </div>
-                            <div class="owl-item" style="width: 1140px; margin-right: 10px;">
-                                <div class="item">
-                                    <a href="https://phukienbongro.com/collections/phu-kien-bong-ro-balo-bong-ro">
-                                        <img src="//theme.hstatic.net/1000372304/1000477951/14/slideshow_7.jpg?v=355"
-                                            alt="Balo Bóng Rổ Thiết Kế Theo Yêu Cầu">
-                                    </a>
-
-                                    <h3>Balo Bóng Rổ Thiết Kế Theo Yêu Cầu</h3>
-
-                                </div>
-                            </div>
-                            <div class="owl-item cloned" style="width: 1140px; margin-right: 10px;">
-                                <div class="item">
-                                    <a href="https://phukienbongro.com/collections/dat-do-bong-ro">
-                                        <img src="//theme.hstatic.net/1000372304/1000477951/14/slideshow_2.jpg?v=355"
-                                            alt="Nhà tài trợ PHUKIENBONGRO.COM">
-                                    </a>
-
-                                    <h3>Nhà tài trợ PHUKIENBONGRO.COM</h3>
-
-                                </div>
-                            </div>
-                            <div class="owl-item cloned" style="width: 1140px; margin-right: 10px;">
-                                <div class="item">
-                                    <a href="https://phukienbongro.com/collections/dat-do-bong-ro">
-                                        <img src="//theme.hstatic.net/1000372304/1000477951/14/slideshow_3.jpg?v=355"
-                                            alt="PHUKIENBONGRO.COM tài trợ giải bóng rổ 2019">
-                                    </a>
-
-                                    <h3>PHUKIENBONGRO.COM tài trợ giải bóng rổ 2019</h3>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="owl-controls">
-                        <div class="owl-nav">
-                            <div class="owl-prev" style="display: none;">prev</div>
-                            <div class="owl-next" style="display: none;">next</div>
-                        </div>
-                        <div class="owl-dots" style="">
-                            <div class="owl-dot"><span></span></div>
-                            <div class="owl-dot"><span></span></div>
-                            <div class="owl-dot active"><span></span></div>
-                            <div class="owl-dot"><span></span></div>
-                            <div class="owl-dot"><span></span></div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
-        <ul class="nav nav-pills">
-            <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Tin mới nhất</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Hướng dẫn mua hàng</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Tin khuyến mãi</a>
-            </li>
-        </ul>
-    </div>
 
-    <script src="js/jquery-3.6.0.min.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/script.js"></script>
-    <!-- <script src="//hstatic.net/0/0/global/design/js/jquery.min.1.11.0.js"></script>
-    <script src="//hstatic.net/0/0/global/api.jquery.js" type="text/javascript"></script>
-    <script src="//hstatic.net/0/0/global/design/theme-default/jquery-migrate-1.2.0.min.js"></script>
-    <script src="//hstatic.net/0/0/global/design/theme-default/jquery.touchSwipe.min.js"
-        type="text/javascript"></script>
-    <script src="//hstatic.net/0/0/global/design/theme-default/jquery.flexslider.js" type="text/javascript"></script> -->
+</body>
+
 </body>
 
 </html>
